@@ -1,6 +1,6 @@
 // Old implementation using classes and states
 import React from "react";
-import ImageComponent from "../Components/Image-Component";
+import ImageComponent from "../../Components/Image-Component";
 
 class ImageContainer extends React.Component {
   constructor() {

@@ -1,16 +1,14 @@
 import React from "react";
 import Header from "../../Components/header/Header";
-import Footer from "../../Components/footer/Footer";
-import ImageContainer from "../Image-Container";
+import ImageContainer from "../image-container/Image-Container";
 import "./App.css";
 
 class App extends React.Component {
   render() {
     return (
       <div className={"page-body"}>
-        <Header />
+        <Header headerText={"Meme Generator"} />
         <ImageContainer />
-        {/* <Footer /> */}
       </div>
     );
   }

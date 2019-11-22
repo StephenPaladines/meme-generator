@@ -29,33 +29,3 @@ h1 {
 .image {
   position: relative;
 }
-.inputs {
-  width: 100%;
-}
-
-.text-input {
-  width: 198px;
-  padding: 0%;
-  margin-bottom: 5px;
-}
-
-.page-button {
-  width: 100%;
-}
-
-#upperText-label,
-#lowerText-label {
-  position: absolute;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-  color: rgb(255, 255, 255);
-  font: bold 40px sans-serif;
-  text-align: center;
-  left: 0;
-  right: 0;
-  top: 15%;
-}
-
-#lowerText-label {
-  top: 75%;
-}
