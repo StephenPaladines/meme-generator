@@ -32,8 +32,22 @@ const ImageContainer = () => {
     }));
   };
 
+  // Object literal used to condense input properties
+  const inputObj = {
+    type: "text",
+    onChange: handleChange,
+    maxLength: "15",
+    className: "text-input"
+  };
+
+  const buttonObj = {
+    onClick: generateImage,
+    className: "page-button",
+    text: "Generate"
+  };
+
   return (
-    <div className="container">
+    <div className="container">  
       <div className="image">
         <img src={imageSrc} alt="" />
         <span id="upperText-label">{upperText}</span>
@@ -41,29 +55,19 @@ const ImageContainer = () => {
       </div>
       <div className="inputs">
         <Input
-          type={"text"}
           placeholder={"Upper Text"}
           value={upperText}
           name={"upperText"}
-          onChange={handleChange}
-          maxLength={"15"}
-          className={"text-input"}
+          {...inputObj} // Spread operator used to condense code (See line 36)
         />
         <Input
-          type={"text"}
           placeholder={"Lower Text"}
           value={lowerText}
           name={"lowerText"}
-          onChange={handleChange}
-          maxLength={"15"}
-          className={"text-input"}
+          {...inputObj}
         />
       </div>
-      <Button
-        onClick={generateImage}
-        className={"page-button"}
-        text={"Generate"}
-      />
+      <Button {...buttonObj} />
     </div>
   );
 };
