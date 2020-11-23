@@ -46,6 +46,8 @@ const ImageContainer = () => {
     text: "Generate"
   };
 
+  const inputArray = [{text: "Upper Text", value: upperText, name: "upperText"}, {text: "Lower Text", value:lowerText, name:"lowerText"}]
+
   return (
     <div className="container">  
       <div className="image">
@@ -54,18 +56,9 @@ const ImageContainer = () => {
         <span id="lowerText-label">{lowerText}</span>
       </div>
       <div className="inputs">
-        <Input
-          placeholder={"Upper Text"}
-          value={upperText}
-          name={"upperText"}
-          {...inputObj} // Spread operator used to condense code (See line 36)
-        />
-        <Input
-          placeholder={"Lower Text"}
-          value={lowerText}
-          name={"lowerText"}
-          {...inputObj}
-        />
+        {inputArray.map(row => 
+        <Input {...row} {...inputObj}></Input>
+        )}
       </div>
       <Button {...buttonObj} />
     </div>
