@@ -9,6 +9,10 @@ module.exports = {
       xl: "1200px",
       "2xl": "1440px",
     },
+    width: {
+      "400px": "400px",
+      "full": "100%",
+    },
     extend: {},
   },
   variants: {

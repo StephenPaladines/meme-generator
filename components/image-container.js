@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "./input";
-import Button from "./dashboard";
+import Button from "./button";
+import Image from "next/image";
 
 const ImageContainer = () => {
   const [{ upperText, lowerText }, setInputText] = useState({
@@ -8,12 +9,16 @@ const ImageContainer = () => {
     lowerText: "",
   });
 
-  const [imageSrc, setImageSrc] = useState("http://lorempixel.com/400/400/"); // Destructs and creates const imageSrc and function setImageSrc
+  const [imageSrc, setImageSrc] = useState("https://picsum.photos/400"); // Destructs and creates const imageSrc and function setImageSrc
+  const [buttonState, setButtonState] = useState(false);
 
   const generateImage = () => {
+    setButtonState(() => !buttonState);
     fetch("https://picsum.photos/400") // Gets URL from API and then returns a promise which updates image source
       .then((response) => {
+        console.log(response);
         setImageSrc(response.url);
+        setButtonState(() => !buttonState);
       })
       .catch((e) => {
         // Catches any potential error
@@ -34,13 +39,14 @@ const ImageContainer = () => {
     type: "text",
     onChange: handleChange,
     maxLength: "15",
-    className: "text-input",
+    className: "w-100% border bg-white-200",
   };
 
   const buttonObj = {
     onClick: generateImage,
-    className: "page-button",
+    className: "mx-auto",
     text: "Generate",
+    disabled: buttonState,
   };
 
   const inputArray = [
@@ -49,21 +55,31 @@ const ImageContainer = () => {
   ];
 
   return (
-    <div className="w-20 h-20 bg-black">
-      {/* <div className="image">
-        <img src={imageSrc} alt="" />
-        <span id="upperText-label">{upperText}</span>
-        <span id="lowerText-label">{lowerText}</span>
-      </div>
-      <div className="inputs">
-        <div>
-          dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddssddddd
+    <div className="grid grid-cols-6 mx-20 mt-10 border border-black max-w-auto">
+      <div className="col-span-3 col-start-2 col-end-2 ">
+        <div className="w-auto ">
+          <Image
+            src={imageSrc}
+            width="400"
+            height="400"
+            alt="meme-image"
+            className="w-auto"
+          />
+          <span id="upperText-label">{upperText}</span>
+          <span id="lowerText-label">{lowerText}</span>
         </div>
-        {inputArray.map((row) => (
-          <Input {...row} {...inputObj}></Input>
-        ))}
+        <Button {...buttonObj} />
       </div>
-      <Button {...buttonObj} /> */}
+      <div className="col-span-3 col-start-5 col-end-5">
+        <div>
+          {inputArray.map((row) => {
+            <>
+              <label>Hello</label>
+              <Input {...row} {...inputObj}></Input>;
+            </>;
+          })}
+        </div>
+      </div>
     </div>
   );
 };
