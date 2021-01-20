@@ -1,0 +1,5 @@
+.heading-1 {
+  @apply font-bold text-black;
+  font-size: 42px;
+  line-height: 56px;
+}

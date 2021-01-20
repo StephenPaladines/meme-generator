@@ -1,0 +1,3 @@
+.btn {
+  @apply flex justify-center w-full p-4 mt-2 font-bold text-white bg-black rounded;
+}
