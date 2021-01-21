@@ -7,6 +7,9 @@ export default function Dashboard() {
       <Link url="/meme-generator" className="btn">
         Meme Generator
       </Link>
+      <Link url="/time" className="btn">
+        Time (w/Flask)
+      </Link>
     </div>
   );
 }
