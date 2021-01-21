@@ -33,6 +33,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# todo
+/TODO
+
 # python files
 venv/
 __pycache__
