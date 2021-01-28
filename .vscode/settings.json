@@ -11,5 +11,6 @@
     "pylint_flask_sqlalchemy",
     "pylint_flask",
     "--errors-only"
-  ]
+  ],
+  "explorer.sortOrder": "type"
 }
