@@ -55,9 +55,9 @@ def tasks():
             # close connection
             cursor.close()
             
-            res = make_response(json.jsonify(results), 300)
+            # res = make_response(json.jsonify(results), 2)
             # return f'Welcome to my routes {results}'
-            return res
+            return {'tasks': results}
             # return json.jsonify(tasks=results)
             # return jsonify(results)
         else:

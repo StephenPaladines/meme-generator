@@ -5,22 +5,20 @@ export default function ListOfTasks() {
 
   useEffect(() => {
     fetch("/tasks")
-      .then((res) => {
-        console.log(res);
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setTasks(data.tasks);
-      });
+      .then((res) => res.json())
+      .then((data) => setTasks(data.tasks));
   }, []);
 
   return (
-    <ul>
-      {/* {tasks.map(({ done, due_date, id, task, user }) => {
-        <li key={id}>{task}</li>;
-        <input type="checkbox" checked={done}></input>;
-      })} */}
-    </ul>
+    <>
+      <ul className="list-disc">
+        {tasks.map(({ done, due_date, id, task, user }) => (
+          <li key={id}>
+            <label>{task}</label>
+            <input type="checkbox" checked={!done} onChange={!done}></input>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }

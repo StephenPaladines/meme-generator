@@ -1,4 +1,4 @@
 import ListOfTasks from "../components/list_of_tasks";
-export default function Tasks() {
+export default function Task() {
   return <ListOfTasks></ListOfTasks>;
 }

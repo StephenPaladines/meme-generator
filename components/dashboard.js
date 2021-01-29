@@ -10,8 +10,8 @@ export default function Dashboard() {
       <Link url="/time" className="btn">
         Time (w/Flask)
       </Link>
-      <Link url="/tasks" className="btn">
-        Tasks
+      <Link url="/task" className="btn">
+        Task
       </Link>
     </div>
   );
